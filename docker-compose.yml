@@ -1,0 +1,59 @@
+services:
+    app:
+        build:
+            context: ./docker/8.3
+            dockerfile: Dockerfile
+        image: sail-8.3/app
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '8030:80'
+        environment:
+            LARAVEL_SAIL: 1
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - avrillo-test
+        depends_on:
+            - mysql
+            - redis
+            - queue
+    mysql:
+        image: 'mysql/mysql-server:8.0'
+        ports:
+            - '33064:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: 'password'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: 'avrillo'
+        volumes:
+            - 'db_data:/var/lib/mysql'
+        networks:
+            - avrillo-test
+    redis:
+        image: 'redis:alpine'
+        ports:
+            - '6381:6379'
+        volumes:
+            - 'redis:/data'
+        networks:
+            - avrillo-test
+    queue:
+        image: 'redis:alpine'
+        ports:
+            - '6382:6379'
+        volumes:
+            - 'queue:/data'
+        networks:
+            - avrillo-test
+networks:
+    avrillo-test:
+        driver: bridge
+        name: avrillo-test
+volumes:
+    db_data:
+        driver: local
+    redis:
+        driver: local
+    queue:
+        driver: local
