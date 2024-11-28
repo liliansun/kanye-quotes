@@ -13,7 +13,7 @@ services:
         volumes:
             - '.:/var/www/html'
         networks:
-            - avrillo-test
+            - kanye-quotes
         depends_on:
             - mysql
             - redis
@@ -25,11 +25,11 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: 'password'
             MYSQL_ROOT_HOST: '%'
-            MYSQL_DATABASE: 'avrillo'
+            MYSQL_DATABASE: 'kanye_quotes'
         volumes:
             - 'db_data:/var/lib/mysql'
         networks:
-            - avrillo-test
+            - kanye-quotes
     redis:
         image: 'redis:alpine'
         ports:
@@ -37,7 +37,7 @@ services:
         volumes:
             - 'redis:/data'
         networks:
-            - avrillo-test
+            - kanye-quotes
     queue:
         image: 'redis:alpine'
         ports:
@@ -45,11 +45,11 @@ services:
         volumes:
             - 'queue:/data'
         networks:
-            - avrillo-test
+            - kanye-quotes
 networks:
-    avrillo-test:
+    kanye-quotes:
         driver: bridge
-        name: avrillo-test
+        name: kanye-quotes
 volumes:
     db_data:
         driver: local

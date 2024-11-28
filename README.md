@@ -1,3 +1,6 @@
+## Project Description
+A rest API that shows 5 random Kayne West quotes (https://kanye.rest/)
+
 ## Local Environment
 
 Requires:
@@ -19,10 +22,10 @@ Run `docker-compose build` to build the app container images. Then run `docker-c
 
 * databases created:*
 ```
-DB_DATABASE=avrillo
+DB_DATABASE=kanye_quotes
 ```
-`avrillo` is MYSQL database
-`avrillo_test` needs to be created if running testcase with phpunit.xml as configure file
+`kanye_quotes` is MYSQL database
+`kanye_quotes_test` needs to be created if running testcase with phpunit.xml as configure file
 
 ```sh
 docker-compose exec app php artisan migrate
