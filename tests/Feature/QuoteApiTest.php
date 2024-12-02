@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Services\QuoteManager;
+use App\Services\NewQuoteManager;
 use App\Contracts\QuoteProviderInterface;
 use Illuminate\Support\Facades\Http;
 use Mockery;
