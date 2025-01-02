@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('api_access', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('domain_name',256);
             $table->string('token', 64);
             $table->timestamp('last_used')->nullable();
             $table->timestamps();

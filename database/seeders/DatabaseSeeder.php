@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\ApiAccess;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        ApiAccess::create([
+            'domain_name' => 'localhost:8085',
+            'token' => Hash::make('QvpquzXzAZqynhYUrdJlv3G1GtxI7hFdiXCuyTbAk18ImCYf4ZkZXIzyEjz9PyWD'),
         ]);
     }
 }
