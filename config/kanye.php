@@ -1,4 +1,4 @@
 <?php
 return [
-    'driver' =>env('KANYE_DRIVER', 'KanyeRest'),
+    'driver' => env('KANYE_DRIVER', 'kanyeRest'),
 ];
