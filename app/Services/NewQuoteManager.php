@@ -21,6 +21,6 @@ class NewQuoteManager extends Manager
 
     public function getDefaultDriver()
     {
-        return $this->config->get('session.driver');
+        return $this->config->get('kanye.driver', 'kanyeRest');
     }
 }
